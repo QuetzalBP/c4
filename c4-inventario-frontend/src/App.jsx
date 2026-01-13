@@ -27,7 +27,6 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="products" element={<ProductsTable />} />
           <Route path="add-product" element={<AddProduct />} />
-          <Route path="movements" element={<Movements />} />
           <Route path="reports" element={<Reports />} />
           <Route path="settings" element={<Settings />} />
           <Route path="edit-product/:id" element={<EditProduct />} />

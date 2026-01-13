@@ -24,8 +24,7 @@ const Sidebar = () => {
   const menuItems = [
     { path: "/dashboard", label: "Inicio" },
     { path: "/products", label: "Tabla Productos" },
-    { path: "/add-product", label: "Agregar Producto" },
-    { path: "/movements", label: "Movimientos" },
+    { path: "/add-product", label: "Agregar Producto" }, 
     { path: "/reports", label: "Reportes" },
     { path: "/settings", label: "Configuración" },
   ];
