@@ -12,7 +12,8 @@ const Product = sequelize.define("Product", {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
-    defaultValue: () => `PROD-${Date.now().toString(36)}-${Math.random().toString(36).substr(2, 9)}`.toUpperCase()
+    defaultValue: () =>
+      `PROD-${Date.now().toString(36)}-${Math.random().toString(36).substr(2, 9)}`.toUpperCase()
   },
   name: {
     type: DataTypes.STRING,
@@ -36,8 +37,13 @@ const Product = sequelize.define("Product", {
     unique: true
   },
   status: {
-    type: DataTypes.ENUM('En campo', 'Bodega', 'Entrega a recepción', 'Prestado'),
-    defaultValue: 'Bodega'
+    type: DataTypes.ENUM(
+      "En campo",
+      "Bodega",
+      "Entrega a recepción",
+      "Prestado"
+    ),
+    defaultValue: "Bodega"
   },
   quantity: {
     type: DataTypes.INTEGER,
@@ -67,28 +73,17 @@ const Product = sequelize.define("Product", {
     type: DataTypes.DATE,
     allowNull: true
   },
-  // AGREGA ESTOS CAMPOS:
   createdBy: {
     type: DataTypes.STRING,
     allowNull: false,
-    defaultValue: "admin" // o el valor por defecto que quieras
+    defaultValue: "admin"
   },
   updatedBy: {
     type: DataTypes.STRING,
     allowNull: true
-  },
-  createdAt: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW
-  },
-  updatedAt: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW
   }
 }, {
-  timestamps: true // Esto ya incluye createdAt y updatedAt automáticamente
-},
-
-)
+  timestamps: true // Sequelize maneja createdAt y updatedAt
+})
 
 export default Product
