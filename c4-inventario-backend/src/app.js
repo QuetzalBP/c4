@@ -8,7 +8,7 @@ import User from "./models/User.js"
 import Product from "./models/Product.js"
 import authRoutes from "./routes/auth.routes.js"
 import productsRoutes from "./routes/products.routes.js"
-
+import usersRoutes from "./routes/users.routes.js"
 const app = express()
 
 // Middlewares
@@ -96,7 +96,7 @@ async function startServer() {
       ])
       console.log("✅ Productos de ejemplo creados")
     }
-
+    app.use("/api/users", usersRoutes)
     app.listen(3000, () => {
       console.log("🚀 Servidor corriendo en http://localhost:3000")
       console.log("📋 Rutas disponibles:")

@@ -26,7 +26,19 @@ export default function Settings() {
     role: "USER"
   })
 
-  const currentUser = JSON.parse(localStorage.getItem("user") || "{}")
+  const currentUser = (() => {
+  try {
+    const userStr = localStorage.getItem("user")
+    if (!userStr || userStr === "undefined" || userStr === "null" || userStr.trim() === "") {
+      return {}
+    }
+    return JSON.parse(userStr)
+  } catch (error) {
+    console.error("Error parsing user data:", error)
+    localStorage.removeItem("user") // Limpia dato corrupto
+    return {}
+  }
+})()
 
   useEffect(() => {
     loadUsers()

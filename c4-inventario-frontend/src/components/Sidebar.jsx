@@ -33,20 +33,29 @@ const Sidebar = () => {
     <div style={{
       width: '250px',
       height: '100vh',
-      background: '#1e3a8a',
+      background: 'linear-gradient(180deg, #9b1b30 0%, #c22940 100%)',
       color: 'white',
       display: 'flex',
       flexDirection: 'column',
       position: 'fixed',
       left: 0,
       top: 0,
+      zIndex: 1000,
+      boxShadow: '2px 0 10px rgba(0, 0, 0, 0.1)'
     }}>
       {/* Logo */}
       <div style={{ 
         padding: '24px 20px', 
-        borderBottom: '1px solid rgba(255, 255, 255, 0.1)' 
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+        background: 'rgba(155, 27, 48, 0.9)'
       }}>
-        <h2 style={{ margin: 0, fontSize: '1.5rem' }}>C4 Inventario</h2>
+        <h2 style={{ 
+          margin: 0, 
+          fontSize: '1.5rem',
+          textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)'
+        }}>
+          C4 Inventario
+        </h2>
       </div>
 
       {/* Menú de navegación */}
@@ -66,15 +75,17 @@ const Sidebar = () => {
               alignItems: 'center',
               gap: '12px',
               padding: '12px 20px',
-              color: isActive ? 'white' : 'rgba(255, 255, 255, 0.8)',
+              color: isActive ? 'white' : 'rgba(255, 255, 255, 0.9)',
               textDecoration: 'none',
-              background: isActive ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
-              borderLeft: isActive ? '3px solid #60a5fa' : '3px solid transparent',
+              background: isActive ? 'rgba(255, 255, 255, 0.2)' : 'transparent',
+              borderLeft: isActive ? '3px solid #ffcc00' : '3px solid transparent',
               transition: 'all 0.3s ease',
+              margin: '0 10px',
+              borderRadius: '4px'
             })}
             onMouseEnter={(e) => {
               if (!e.currentTarget.classList.contains('active')) {
-                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
               }
             }}
             onMouseLeave={(e) => {
@@ -91,7 +102,8 @@ const Sidebar = () => {
       {/* Información del usuario */}
       <div style={{ 
         padding: '20px', 
-        borderTop: '1px solid rgba(255, 255, 255, 0.1)' 
+        borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+        background: 'rgba(155, 27, 48, 0.9)'
       }}>
         <div style={{ 
           display: 'flex', 
@@ -103,11 +115,12 @@ const Sidebar = () => {
             width: '40px',
             height: '40px',
             borderRadius: '50%',
-            background: 'rgba(255, 255, 255, 0.1)',
+            background: 'rgba(255, 255, 255, 0.15)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '18px'
+            fontSize: '18px',
+            border: '2px solid rgba(255, 204, 0, 0.3)'
           }}>
             👤
           </div>
@@ -122,7 +135,7 @@ const Sidebar = () => {
             <p style={{ 
               margin: 0, 
               fontSize: '12px', 
-              color: 'rgba(255, 255, 255, 0.6)' 
+              color: 'rgba(255, 255, 255, 0.8)' 
             }}>
               {user?.role || "Administrador"}
             </p>
@@ -138,16 +151,23 @@ const Sidebar = () => {
             justifyContent: 'center',
             gap: '8px',
             padding: '10px',
-            background: 'rgba(255, 255, 255, 0.1)',
+            background: 'rgba(255, 255, 255, 0.15)',
             color: 'white',
-            border: 'none',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
             borderRadius: '6px',
             cursor: 'pointer',
-            transition: 'background 0.3s ease',
-            fontSize: '14px'
+            transition: 'all 0.3s ease',
+            fontSize: '14px',
+            fontWeight: '500'
           }}
-          onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)'}
-          onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)';
+            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+          }}
         >
           Cerrar sesión
         </button>
